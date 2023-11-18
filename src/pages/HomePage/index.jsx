@@ -1,22 +1,41 @@
-import './style.css';
+import "./style.css";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { RoomsList } from "../../components/RoomsList";
+import { RoomDetail } from "../../components/RoomDetail";
+import { Form } from "../../components/Form";
+import { useState } from "react";
 
 export const HomePage = () => {
+  const [selected, setSelected] = useState(null);
+  const handleClick = (room) => {
+    console.log(room);
+    setSelected(room);
+  };
+
+  console.log(selected)
+
+
   return (
     <div className="container">
-      <header>
-        <div className="logo" />
-        <h1>React webová aplikace</h1>
-      </header>
+      <Header />
       <main>
-        <p>
-          Startovací šablona pro webovou aplikaci v Reactu. Vytvořeno pomocí
-          {" "}
-          <a href="https://www.npmjs.com/package/create-czechitas-app">create-czechitas-app</a>
-          .
-        </p>
+        <RoomsList onClick={handleClick} />
+        <div>
+        { selected !==null?(<RoomDetail
+              name={selected.name}
+              img={selected.img}
+              price={selected.price}
+              description={selected.description}
+            />):null}
+            
+          
+
+          <Form />
+        </div>
       </main>
       <footer>
-        <p>Czechitas, Digitální akademie: Web</p>
+        <Footer />
       </footer>
     </div>
   );
