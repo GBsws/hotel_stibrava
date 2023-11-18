@@ -13,7 +13,11 @@ export const HomePage = () => {
     setSelected(room);
   };
 
-  console.log(selected)
+  if (selected){
+    console.log('img', selected.img)
+
+  }
+  
 
 
   return (

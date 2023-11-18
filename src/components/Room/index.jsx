@@ -3,6 +3,7 @@ export const Room=({room, onClick})=>{
     const handleClick=()=>{
         onClick(room)
         }
+        console.log('room',address+room.img)
 return(
     <div className="card" onClick={handleClick}>
             <img className="card__image" src={address+room.img} />
